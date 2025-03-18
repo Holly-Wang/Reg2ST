@@ -36,7 +36,7 @@ pip install -r requirements.txt
 
 3. Prepare the dataset
 
-Download datasets mentioned above.
+Download [HER2+](https://drive.google.com/drive/folders/1-sGXdTuTLKU8H7IE1uGmvUBmko-y395z?usp=sharing) and [cSCC](https://drive.google.com/drive/folders/1-yU3rmGhoimyCNx7oasBRpuDKSVqJNBa?usp=sharing) datasets.
 
 4. Train the model
 
