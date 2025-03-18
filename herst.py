@@ -65,6 +65,7 @@ def calcADJ(coord, k=8, distanceType='euclidean', pruneTag='NA'):
                 if distMat[0,res[0][j]]<=2.0:
                     Adj[i][res[0][j]]=1.0
     return Adj
+
 class ViT_HER2ST(torch.utils.data.Dataset):
     """Some Information about HER2ST"""
     def __init__(self,train: True, fold=1,r=4,flatten=True,ori=False,adj=False,prune='Grid',neighs=4, val=True):
@@ -98,17 +99,6 @@ class ViT_HER2ST(torch.utils.data.Dataset):
             self.names = tr_names
         else:
             self.names = te_names
-        
-        # train_set, val_set = split_list(fold)
-        # if self.train:
-        #     self.names = [samples[i] for i in train_set]
-        #     print("train samples:", self.names)
-        # elif self.val:
-        #     self.names = [samples[i] for i in val_set]
-        #     print("val samples:", self.names)
-        # else:
-        #     self.names = te_names
-        #     print("test samples:", self.names)
         
         
         self.names.sort()
@@ -183,24 +173,6 @@ class ViT_HER2ST(torch.utils.data.Dataset):
         # adj = self.adj_dict[ID]
         # patches = self.patch_dict[ID]
         positions = torch.LongTensor(loc)
-        # patch_dim = 3 * self.r * self.r * 4
-        # label=self.label[ID]
-        # exps = torch.Tensor(exps)
-        # if patches is None:
-        #     n_patches = len(centers)
-        #     if self.flatten:
-        #         patches = torch.zeros((n_patches,patch_dim))
-        #     else:
-        #         patches = torch.zeros((n_patches,3,2*self.r,2*self.r))
-        #     for i in range(n_patches):
-        #         center = centers[i]
-        #         x, y = center
-        #         patch = im[(x-self.r):(x+self.r),(y-self.r):(y+self.r),:]
-        #         if self.flatten:
-        #             patches[i] = patch.flatten()
-        #         else:
-        #             patches[i]=patch.permute(2,1,0)
-            # self.patch_dict[ID]=patches
         img_f = np.load(f"{self.patch_path}{ID}.npy")
         data = [torch.Tensor(exps), img_f, positions, torch.Tensor(centers)]
         if self.ori:
@@ -364,24 +336,7 @@ class ViT_SKIN(torch.utils.data.Dataset):
         loc = self.loc_dict[ID]
         # patches = self.patch_dict[ID]
         positions = torch.LongTensor(loc)
-        # patch_dim = 3 * self.r * self.r * 4
-        # exps = torch.Tensor(exps)
-        # if patches is None:
-        #     n_patches = len(centers)
-        #     if self.flatten:
-        #         patches = torch.zeros((n_patches,patch_dim))
-        #     else:
-        #         patches = torch.zeros((n_patches,3,2*self.r,2*self.r))
 
-        #     for i in range(n_patches):
-        #         center = centers[i]
-        #         x, y = center
-        #         patch = im[(x-self.r):(x+self.r),(y-self.r):(y+self.r),:]
-        #         if self.flatten:
-        #             patches[i] = patch.flatten()
-        #         else:
-        #             patches[i]=patch.permute(2,0,1)
-        #     self.patch_dict[ID]=patches
         img_f = np.load(f'{self.patch_path}{ID}.npy')
         data=[torch.Tensor(exps), img_f, positions, torch.Tensor(centers)]
         if self.ori:

@@ -4,16 +4,6 @@ import requests
 from transformers import AutoImageProcessor, AutoModel
 import numpy as np
 
-# Load an image
-# image = Image.open(
-#     requests.get(
-#         "https://github.com/owkin/HistoSSLscaling/blob/main/assets/example.tif?raw=true",
-#         stream=True
-#     ).raw
-# )
-
-# image = Image.open('example.tif')
-
 # Load phikon-v2
 processor = AutoImageProcessor.from_pretrained("../pikonv2")
 model = AutoModel.from_pretrained("../pikonv2")
@@ -30,8 +20,3 @@ for i in range(12):
         outputs = model(**inputs)
         features = outputs.last_hidden_state[:, 0, :]  # (1, 1024) shape
         np.save(f"/d/wangx/phikonv2_embedding/skin/{i}.npy", features.numpy())
-
-# # print(f"Processor inputs: {inputs.keys()}")
-# print(inputs["pixel_values"].shape)
-# # print(outputs.keys())
-# print(features.shape)

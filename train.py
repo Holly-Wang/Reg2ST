@@ -1,12 +1,4 @@
-from unittest import TestLoader
-from venv import logger
-
-from regex import F
-from dlpfc import DLPFCHandler
-from utils import parser_option
-from pretrain_model import Clip_Pretrain
 from herst import ViT_HER2ST, ViT_SKIN
-# from MODEL.utils.performance import get_R
 from model import T_SIMSIAM
 from pytorch_lightning.loggers import CSVLogger
 import torch
@@ -62,24 +54,6 @@ def train(args):
                          log_every_n_steps=5)
     trainer.fit(model, train_loader, val_loader)
     
-    # testdata = ViT_HER2ST(args, train=False, flatten=False,ori=True, adj=True, prune='Grid', r=4, fold=i, val=False)
-    
-    # ddp_trainer = pl.Trainer(
-    # fast_dev_run=False,
-    # max_epochs=400,accelerator="gpu", devices=1,
-    # precision=32,log_every_n_steps=1,
-    # check_val_every_n_epoch=1,
-    # val_check_interval=1.0,
-    # num_sanity_val_steps=0,
-    # )
-    # ddp_trainer.test(model,valloader,verbose=True,ckpt_path=val_checkpoint_callback.best_model_path)
-    # trainer = pl.Trainer(max_epochs=400, accelerator='gpu', devices=1, check_val_every_n_epoch=1, 
-    #                          callbacks=[val_checkpoint_callback]
-    #                          )
-    # trainer.test(model, testloader)
-        # trainer.test(model, testloader)
-
-
 def predict(args):
     pcc = []
     r = []
