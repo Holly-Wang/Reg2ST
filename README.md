@@ -12,7 +12,7 @@ dynamic graph neural network.
 ![model](https://github.com/Holly-Wang/Reg2ST/blob/main/model.png)
 
 ## Dataset
-1. the human HER2-positive breast cancer dataset (HER2+): containing 36 sections from 8 patients.
+1. the human HER2-positive breast cancer (HER2+) dataset: containing 36 sections from 8 patients.
 2. the human cutaneous squamous cell carcinoma (cSCC) dataset: containing 12 sections from 4 patients.
 
 ## Results
