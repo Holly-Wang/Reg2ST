@@ -35,8 +35,8 @@ pip install -r requirements.txt
 ```
 
 3. Prepare the dataset
-Download Reg2ST dataset, which contains spatial transcriptomics and phikonv2 embedding of HER2+ and cSCC datasets.
 ```shell
+# Download Reg2ST dataset, which contains spatial transcriptomics and phikonv2 embedding of HER2+ and cSCC datasets.
 cd data
 bash download.sh
 ```
