@@ -49,6 +49,6 @@ python train.py --fold=$i  --device_id=0  --epochs=<EPOCHS> --dataset='her2st'
 5. Predict
 ```shell
 cd code
-python predict.py --fold=$i  --device_id=0 --dataset='her2st'
+python predict.py --fold=0  --device_id=0 --dataset='her2st'
 ```
 
