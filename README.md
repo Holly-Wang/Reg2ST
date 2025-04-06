@@ -16,9 +16,9 @@ dynamic graph neural network.
 2. the human cutaneous squamous cell carcinoma (cSCC) dataset: containing 12 sections from 4 patients.
 
 ## Results
-![her2st result](https://github.com/Holly-Wang/Reg2ST/blob/main/res_her2st.png)
+![her2st result](https://github.com/Holly-Wang/Reg2ST/blob/main/result/res_her2st.png)
 
-![cscc result](https://github.com/Holly-Wang/Reg2ST/blob/main/res_cscc.png)
+![cscc result](https://github.com/Holly-Wang/Reg2ST/blob/main/result/res_cscc.png)
 
 ## Usage
 1. Clone the repository
@@ -35,14 +35,20 @@ pip install -r requirements.txt
 ```
 
 3. Prepare the dataset
-
-Download [HER2+](https://drive.google.com/drive/folders/1-sGXdTuTLKU8H7IE1uGmvUBmko-y395z?usp=sharing) and [cSCC](https://drive.google.com/drive/folders/1-yU3rmGhoimyCNx7oasBRpuDKSVqJNBa?usp=sharing) datasets.
-
-4. Train the model
-
+Download Reg2ST dataset, which contains spatial transcriptomics and phikonv2 embedding of HER2+ and cSCC datasets.
 ```shell
-python train.py --fold=$i  --device_id=0  --epochs=<EPOCHS> --dataset='cscc2'
+cd data
+bash download.sh
 ```
 
-
+4. Train the model
+```shell
+cd code
+python train.py --fold=$i  --device_id=0  --epochs=<EPOCHS> --dataset='her2st'
+```
+5. Predict
+```shell
+cd code
+python predict.py --fold=$i  --device_id=0 --dataset='her2st'
+```
 

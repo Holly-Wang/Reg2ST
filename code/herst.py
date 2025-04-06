@@ -70,14 +70,14 @@ class ViT_HER2ST(torch.utils.data.Dataset):
     """Some Information about HER2ST"""
     def __init__(self,train: True, fold=1,r=4,flatten=True,ori=False,adj=False,prune='Grid',neighs=4, val=True):
         super(ViT_HER2ST, self).__init__()
-        
-        self.cnt_dir = '/d/wangx/clip_prediction/data/her2st/ST-cnts'
-        self.img_dir = '/d/wangx/clip_prediction/data/her2st/ST-imgs'
-        self.pos_dir = '/d/wangx/clip_prediction/data/her2st/ST-spotfiles'
-        self.lbl_dir = '/d/wangx/clip_prediction/data/her2st/ST-pat/lbl'
+        self.dir = "../data/her2st"
+        self.cnt_dir = f"{self.dir}/ST-cnts"
+        self.img_dir = f"{self.dir}/ST-imgs"
+        self.pos_dir = f"{self.dir}/ST-profiles"
+        self.lbl_dir = f"{self.dir}/ST-pat/lbl"
         self.r = 224//2
         # gene_list = list(np.load('data/her_hvg.npy',allow_pickle=True))
-        gene_list = list(np.load('/d/wangx/clip_prediction/data/her2st/her_hvg_cut_1000.npy',allow_pickle=True))
+        gene_list = list(np.load(f"{self.dir}/her2st/her_hvg_cut_1000.npy",allow_pickle=True))
         
         self.gene_list = gene_list
         names = os.listdir(self.cnt_dir)
@@ -157,7 +157,7 @@ class ViT_HER2ST(torch.utils.data.Dataset):
         self.cumlen = np.cumsum(self.lengths)
         self.id2name = dict(enumerate(self.names))
         self.flatten=flatten
-        self.patch_path = '/d/wangx/phikonv2_embedding/her2st/'
+        self.patch_path = f"{self.dir}/phikonv2_embedding/"
             
     def __getitem__(self, index):
         ID=self.id2name[index]
@@ -245,7 +245,7 @@ class ViT_SKIN(torch.utils.data.Dataset):
     def __init__(self,train=True,r=2,norm=False,fold=0,flatten=True,ori=False,adj=False,prune='NA',neighs=4):
         super(ViT_SKIN, self).__init__()
 
-        self.dir = '/d/wangx/clip_prediction/data/GSE144240_RAW/'
+        self.dir = 'data/skin'
         self.r = 224//r
 
         patients = ['P2', 'P5', 'P9', 'P10']
@@ -254,7 +254,7 @@ class ViT_SKIN(torch.utils.data.Dataset):
         for i in patients:
             for j in reps:
                 names.append(i+'_ST_'+j)
-        gene_list = list(np.load(f'{self.dir}skin_hvg_cut_1000.npy',allow_pickle=True))
+        gene_list = list(np.load(f'{self.dir}/skin_hvg_cut_1000.npy',allow_pickle=True))
 
         self.ori = ori
         self.adj = adj
@@ -310,7 +310,7 @@ class ViT_SKIN(torch.utils.data.Dataset):
         self.lengths = [len(i) for i in self.meta_dict.values()]
         self.cumlen = np.cumsum(self.lengths)
         self.id2name = dict(enumerate(self.names))
-        self.patch_path = '/d/wangx/phikonv2_embedding/skin/'
+        self.patch_path = f"{self.dir}/phikonv2_embedding/"
 
 
     def filter_helper(self):
@@ -383,27 +383,3 @@ class ViT_SKIN(torch.utils.data.Dataset):
         for i in meta_dict.values():
             gene_set = gene_set&set(i.columns)
         return list(gene_set)
-
-def cut_pic():
-    data = ViT_SKIN(train=True, fold=0, flatten=False, adj=False, ori=False)
-    dataloader = DataLoader(data, batch_size=1, shuffle=False, pin_memory=True)
-    i=1
-    for data in dataloader:
-        # _, _, pic, _, _, _ = data
-        _, _, _, pic  = data
-        print(pic.shape)
-        np.save(f"/d/wangx/patches/skin/{i}.npy", pic.numpy())
-        i=i+1
-    data = ViT_SKIN(train=False, fold=0, flatten=False, ori=False, adj=False)
-    dataloader = DataLoader(data, batch_size=1, shuffle=False, pin_memory=True)
-    for data in dataloader:
-        # _, _, pic, _, _, _ = data
-        # pic, _, _, _ = data
-        _, _, _, pic = data
-        print(pic.shape)
-        np.save(f"/d/wangx/patches/skin/{0}.npy", pic.numpy())
-        # i=i+1
-        
-if __name__ == "__main__":
-    cut_pic()
-# cut_pic()

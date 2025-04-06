@@ -78,9 +78,9 @@ def generate_masked_tensor(n, zero_prob=0.75):
     matrix[mask] = 0    
     return matrix
 
-class T_SIMSIAM(pl.LightningModule):
+class Reg2ST(pl.LightningModule):
     def __init__(self, args):
-        super(T_SIMSIAM, self).__init__()
+        super(Reg2ST, self).__init__()
         self.args = args
         dim_in = args.dim_in
         dim_hidden = args.dim_hidden
