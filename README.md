@@ -20,6 +20,16 @@ dynamic graph neural network.
 
 ![cscc result](https://github.com/Holly-Wang/Reg2ST/blob/main/result/res_cscc.png)
 
+
+| Model       | Mean PCC (HER2+) | Mean PCC (cSCC) | Median PCC (HER2+) | Median PCC (cSCC) |
+|-------------|------------------|------------------|---------------------|---------------------|
+| HisToGene   | 0.0831           | 0.0775           | 0.0770              | 0.0785              |
+| Hist2ST     | 0.1504           | 0.1819           | 0.1353              | 0.1780              |
+| THIToGene   | 0.1390           | 0.1810           | 0.1249              | 0.1746              |
+| Reg2ST      | **0.1716**       |  **0.2021**      |  **0.1566**         |  **0.1912**         |
+
+Reuslts of ablation study and parameter sensitivity are in  folder `results`.
+
 ## Usage
 1. Clone the repository
 
