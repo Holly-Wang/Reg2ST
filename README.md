@@ -74,7 +74,6 @@ You can download Reg2ST checkpoints on [her2st_models](https://drive.google.com/
 ## Structure of Reg2ST
 <pre>
 <code>
-```
 ├── baselines
 │   └── README.md
 ├── code
@@ -108,6 +107,5 @@ You can download Reg2ST checkpoints on [her2st_models](https://drive.google.com/
 └── tutorial
     ├── Reg2ST_train_test.ipynb
     └── wilcoxon-test.ipynb
-```
 </code>
 </pre>
