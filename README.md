@@ -67,12 +67,12 @@ bash download.sh
 4. Train the model
 ```shell
 cd code
-python train.py --fold=$i  --device_id=0  --epochs=<EPOCHS> --dataset='her2st'
+python train.py --fold=<FOLD>  --device_id=<GPU_ID>  --epochs=<EPOCHS> --dataset='her2st'
 ```
 5. Predict
 ```shell
 cd code
-python predict.py --fold=0  --device_id=0 --dataset='her2st'
+python predict.py --fold=<FOLD>  --device_id=<GPU_ID> --dataset='skin'
 ```
 
 ## Checkpoints
