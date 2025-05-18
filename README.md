@@ -78,6 +78,9 @@ python predict.py --fold=<FOLD>  --device_id=<GPU_ID> --dataset='skin'
 ## Checkpoints
 You can download Reg2ST checkpoints on [her2st_models](https://drive.google.com/file/d/1TtPt7HNGV5OVWjk3Fa0u_P0lCqsMuYqA/view?usp=sharing) and [skin_models](https://drive.google.com/file/d/1cSGAWnR5MlnH5m0FPxoharBzbj3qR0c3/view?usp=sharing).
 
+## PCC result
+You can find PCC result in `result`: [PCC of HER2+](result/her2st_pcc_final.npy) and [PCC of cSCC](result/skin_pcc_final.npy).
+
 ## Getting Started
 - For train and test Reg2ST, please see [tutorials](tutorial/Reg2ST_train_test.ipynb).
 - For Wilcoxon signed rank test, please see [Wilcoxon signed rank test](tutorial/wilcoxon-test.ipynb).
