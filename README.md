@@ -1,12 +1,24 @@
 # Reg2ST: Recognizing potential patterns from gene expression for spatial transcriptomics prediction
 
 ## Overview
-Reg2ST is a deep learning framework designed to predict
-spatial transcriptomics from histology images by integrating
-gene expression patterns using contrastive learning method. It
-contains feature extraction module, feature fusion module and
-dynamic graph neural network.
+Reg2ST is a deep learning framework designed to predict spatial transcriptomics from histology images by integrating
+gene expression patterns using contrastive learning method.
 
+-  Reg2ST, which is a contrastive-learning-based method by using gene expression and histology, is proposed for spatial
+transcriptomics prediction.
+
+- Contrastive learning is used to learn the potential relationships
+between spatial transcriptomics and histology images and align
+these modalities, which bridges the gap between visual and
+transcriptomic data.
+
+- To capture hierarchical and functional relationships between
+spots, Reg2ST dynamically constructs graphs based on
+similarity scores derived from modality features.
+
+- Comparision experiments on HER2+ breast cancer and
+cSCC datasets show that Reg2ST outperforms state-of-the-art
+methods (e.g. Hist2ST, THItoGene, HGGEP) by significant margins.
 
 ## Framework of Reg2ST
 ![model](model.png)
@@ -26,7 +38,7 @@ dynamic graph neural network.
 | HisToGene   | 0.0831           | 0.0775           | 0.0770              | 0.0785              |
 | Hist2ST     | 0.1504           | 0.1819           | 0.1353              | 0.1780              |
 | THIToGene   | 0.1390           | 0.1810           | 0.1249              | 0.1746              |
-| HGGEP       | | | |
+| HGGEP       | 0.1556| |0.1408| |
 | Reg2ST      | **0.1741**       |  **0.2021**      |  **0.1616**         |  **0.1911**         |
 
 Reuslts of ablation study and parameter sensitivity are in folder `results`.
