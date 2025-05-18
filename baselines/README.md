@@ -11,3 +11,7 @@ Hist2ST is a deep learning-based model using histology images to predict RNA-seq
 THItoGene is a hybrid neural network that leverages dynamic convolution and capsule networks to adaptively perceive latent molecular signals from histological images, for the systematic analysis of spatial gene expression within tissue pathology. THItoGene integrates gene expression, spatial locations, and histological images to explore and analyze the relationship between high-resolution pathological image phenotypes and tumor genetic morphology.
 
 ![THItoGene](https://github.com/yrjia1015/THItoGene/blob/main/workflow.png)
+
+### HGGEP
+HGGEP includes a gradient enhancement module to enhance the model’s perception of cell morphological information. A lightweight backbone network extracts multiple latent stage features from the image, followed by attention mechanisms to refine the representation of features at each latent stage and capture their relations with nearby features. To explore higher-order associations among multiple latent stage features, we stack them and feed into the hypergraph to establish associations among features at different scales. Experimental results on multiple datasets from disease samples including cancers and tumor disease, demonstrate the superior performance of our HGGEP model than existing methods.
+![HGGEP](https://github.com/QSong-github/HGGEP/blob/main/Figures/workflow.png)
