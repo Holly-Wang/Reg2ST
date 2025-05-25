@@ -28,9 +28,9 @@ methods (e.g. Hist2ST, THItoGene, HGGEP) by significant margins.
 2. the human cutaneous squamous cell carcinoma (cSCC) dataset: containing 12 sections from 4 patients.
 
 ## Results
-![her2st result](result/res_her2st.png)
+![her2st result](result/her2st-baseline.png)
 
-![cscc result](result/res_cscc.png)
+![cscc result](result/skin-baseline.png)
 
 
 | Model       | Mean PCC (HER2+) | Mean PCC (cSCC) | Median PCC (HER2+) | Median PCC (cSCC) |
@@ -38,7 +38,7 @@ methods (e.g. Hist2ST, THItoGene, HGGEP) by significant margins.
 | HisToGene   | 0.0831           | 0.0775           | 0.0770              | 0.0785              |
 | Hist2ST     | 0.1504           | 0.1819           | 0.1353              | 0.1780              |
 | THIToGene   | 0.1390           | 0.1810           | 0.1249              | 0.1746              |
-| HGGEP       | 0.1556| |0.1408| |
+| HGGEP       | 0.1556| 0.1074 |0.1408| 0.1035|
 | Reg2ST      | **0.1741**       |  **0.2021**      |  **0.1616**         |  **0.1911**         |
 
 Reuslts of ablation study and parameter sensitivity are in folder `results`.
