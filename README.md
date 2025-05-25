@@ -83,7 +83,7 @@ You can find PCC result in `result`: [PCC of HER2+](result/her2st_pcc_final.npy)
 
 ## Getting Started
 - For train and test Reg2ST, please see [tutorials](tutorial/Reg2ST_train_test.ipynb).
-- For Wilcoxon signed rank test, please see [Wilcoxon signed rank test](tutorial/wilcoxon-test.ipynb).
+- For Wilcoxon signed rank test, please see [Wilcoxon signed rank test](tutorial/wilcoxon_test.ipynb).
 
 
 ## Structure of Reg2ST
