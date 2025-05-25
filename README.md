@@ -109,18 +109,8 @@ You can find PCC result in `result`: [PCC of HER2+](result/her2st_pcc_final.npy)
 ├── README.md
 ├── requirements.txt
 ├── result
-│   ├── abi-her2st-mean.png
-│   ├── abi-her2st-median.png
-│   ├── abi-skin-mean.png
-│   ├── abi-skin-median.png
-│   ├── hyper-her2st-embedding.png
-│   ├── hyper-her2st-wikg.png
-│   ├── hyper-skin-embedding.png
-│   ├── hyper-skin-wikg.png
-│   ├── res_cscc.png
-│   └── res_her2st.png
 └── tutorial
     ├── Reg2ST_train_test.ipynb
-    └── wilcoxon-test.ipynb
+    └── wilcoxon_test.ipynb
 </code>
 </pre>
